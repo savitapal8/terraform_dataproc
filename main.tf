@@ -1,5 +1,6 @@
 provider "google-beta"{
-    access-token = var.access-token
+  user_project_override = true
+  access_token          = var.access_token
 }
 
 resource "google_service_account" "default" {
