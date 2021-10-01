@@ -1,3 +1,8 @@
+provider "google" {
+  user_project_override = true
+  access_token          = var.access_token
+}
+
 provider "google-beta"{
   user_project_override = true
   access_token          = var.access_token
