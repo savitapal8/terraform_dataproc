@@ -1,5 +1,5 @@
 provider "google-beta"{
-    
+    access-token = var.access-token
 }
 
 resource "google_service_account" "default" {
