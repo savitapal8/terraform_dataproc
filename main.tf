@@ -40,7 +40,7 @@ resource "google_dataproc_cluster" "mycluster" {
       tags = ["foo", "bar"]
       internal_ip_only = true
       # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-      service_account = google_service_account.default.email
+      service_account = "demo-sentinel-sa@airline1-sabre-wolverine.iam.gserviceaccount.com"
       service_account_scopes = [
         "cloud-platform"
       ]
