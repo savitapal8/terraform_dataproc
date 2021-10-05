@@ -8,12 +8,6 @@ provider "google-beta"{
   access_token          = var.access_token
 }
 
-resource "google_service_account" "default" {
-  account_id   = "service-account-id"
-  display_name = "Service Account"
-  project = "airline1-sabre-wolverine"
-}
-
 resource "google_dataproc_cluster" "mycluster" {
   name     = "mycluster"
   provider = google-beta
