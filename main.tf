@@ -6,10 +6,16 @@ provider "google-beta"{
   access_token          = var.access_token
 }
 
-resource "google_service_account" "default" {
+resource "google_service_account" "dataproc-sa" {
   account_id   = "service-account-id"
   display_name = "Service Account"
   project = "airline1-sabre-wolverine"
+}
+
+resource "google_project_iam_member" "dataproc-sa-role" {
+  project = "airline1-sabre-wolverine"
+  role    = "roles/dataproc.admin"
+  member  = "serviceAccount:${google_service_account.dataproc-sa.email}"
 }
 
 resource "google_dataproc_cluster" "cluster-wsar" {
@@ -39,7 +45,7 @@ resource "google_dataproc_cluster" "cluster-wsar" {
       internal_ip_only = true
       
       # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-      service_account = google_service_account.default.email
+      service_account = google_service_account.dataproc-sa.email
       service_account_scopes = [
         "cloud-platform"
       ]
