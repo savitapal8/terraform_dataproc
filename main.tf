@@ -50,6 +50,8 @@ resource "google_dataproc_cluster" "cluster-wsar" {
       tags = ["foo", "bar"]
       internal_ip_only = true
       
+      network    = "projects/airline1-sabre-wolverine/global/networks/savita-vpc"
+
       # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
       service_account = google_service_account.dataproc-sa.email
       service_account_scopes = [
@@ -130,6 +132,8 @@ resource "google_dataproc_cluster" "cluster-wsae" {
       tags = ["foo", "bar"]
       internal_ip_only = true
       
+      network    = "projects/airline1-sabre-wolverine/global/networks/savita-vpc"
+
       # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
       service_account = "demo-sentinel-sa@airline1-sabre-wolverine.iam.gserviceaccount.com"
       service_account_scopes = [
@@ -213,6 +217,7 @@ resource "google_dataproc_cluster" "cluster-wsan" {
     gce_cluster_config {
       tags = ["foo", "bar"]
       internal_ip_only = true
+      network    = "projects/airline1-sabre-wolverine/global/networks/savita-vpc"
     }
 
     master_config {
