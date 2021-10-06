@@ -7,18 +7,12 @@ provider "google-beta"{
 }
 
 resource "google_service_account" "dataproc-sa" {
-  account_id   = "dataproc-sa-id1"
+  account_id   = "dataproc-sa-id"
   display_name = "Service Account"
   project = "airline1-sabre-wolverine"
 }
 
-resource "google_project_iam_member" "dataproc-sa-role" {
-  project = "airline1-sabre-wolverine"
-  role    = "roles/dataproc.admin"
-  member  = "serviceAccount:${google_service_account.dataproc-sa.email}"
-}
-
-resource "google_project_iam_member" "dataproc-sa-role1" {
+resource "google_project_iam_member" "dataproc-worker" {
   project = "airline1-sabre-wolverine"
   role    = "roles/dataproc.worker"
   member  = "serviceAccount:${google_service_account.dataproc-sa.email}"
@@ -92,6 +86,7 @@ resource "google_dataproc_cluster" "cluster-wsar" {
         enable_http_port_access = false
     }
   }
+   depends_on = [google_service_account.dataproc-sa,google_project_iam_member.dataproc-worker]
 }
 
 resource "google_dataproc_cluster" "cluster-wsae" {
