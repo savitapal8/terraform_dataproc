@@ -44,14 +44,14 @@ resource "google_dataproc_cluster" "cluster-wsar" {
   }
 
   cluster_config {
-    staging_bucket = "dataproc-staging-bucket"
+    staging_bucket = "dataproc-staging-bucket123"
     
     gce_cluster_config {
       tags = ["foo", "bar"]
       internal_ip_only = true
       
-      network    = "projects/airline1-sabre-wolverine/global/networks/savita-vpc"
-      subnetwork = "projects/airline1-sabre-wolverine/regions/us-central1/subnetworks/savita--subnet-vpc"
+      #network    = "projects/airline1-sabre-wolverine/global/networks/savita-vpc"
+      subnetwork = "projects/airline1-sabre-wolverine/regions/us-central1/subnetworks/savita-subnet-vpc1"
 
       # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
       service_account = google_service_account.dataproc-sa.email
@@ -63,20 +63,12 @@ resource "google_dataproc_cluster" "cluster-wsar" {
     master_config {
       num_instances = 1
       machine_type  = "e2-medium"
-      disk_config {
-        boot_disk_type    = "pd-ssd"
-        boot_disk_size_gb = 30
-      }
     }
 
     worker_config {
       num_instances    = 2
       machine_type     = "e2-medium"
-      min_cpu_platform = "Intel Skylake"
-      disk_config {
-        boot_disk_size_gb = 30
-        num_local_ssds    = 1
-      }
+      #min_cpu_platform = "Intel Skylake"
     }
 
     preemptible_worker_config {
@@ -91,11 +83,6 @@ resource "google_dataproc_cluster" "cluster-wsar" {
       }
     }
 
-    # You can define multiple initialization_action blocks
-    initialization_action {
-      script      = "gs://dataproc-initialization-actions/stackdriver/stackdriver.sh"
-      timeout_sec = 500
-    }
 
     encryption_config{
         kms_key_name = ""
@@ -111,7 +98,7 @@ resource "google_dataproc_cluster" "cluster-wsae" {
   name     = "cluster-wsae"
   provider = google-beta
   project = "airline1-sabre-wolverine"
-  region   = "us-central1"
+  region   = "us-east1"
 
   graceful_decommission_timeout = "120s"
 
@@ -127,39 +114,31 @@ resource "google_dataproc_cluster" "cluster-wsae" {
   }
 
   cluster_config {
-    staging_bucket = "dataproc-staging-bucket"
+    staging_bucket = "dataproc-staging-bucket123"
     
     gce_cluster_config {
       tags = ["foo", "bar"]
       internal_ip_only = true
       
-      network    = "projects/airline1-sabre-wolverine/global/networks/savita-vpc"
-      subnetwork = "projects/airline1-sabre-wolverine/regions/us-central1/subnetworks/savita--subnet-vpc"
+      #network    = "projects/airline1-sabre-wolverine/global/networks/savita-vpc"
+      subnetwork = "projects/airline1-sabre-wolverine/regions/us-east1/subnetworks/savita-subnet-vpc-2"
 
       # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
       service_account = "demo-sentinel-sa@airline1-sabre-wolverine.iam.gserviceaccount.com"
       service_account_scopes = [
         "cloud-platform"
-      ] 
+      ]
     }
 
     master_config {
       num_instances = 1
       machine_type  = "e2-medium"
-      disk_config {
-        boot_disk_type    = "pd-ssd"
-        boot_disk_size_gb = 30
-      }
     }
 
     worker_config {
       num_instances    = 2
       machine_type     = "e2-medium"
-      min_cpu_platform = "Intel Skylake"
-      disk_config {
-        boot_disk_size_gb = 30
-        num_local_ssds    = 1
-      }
+      #min_cpu_platform = "Intel Skylake"
     }
 
     preemptible_worker_config {
@@ -172,12 +151,6 @@ resource "google_dataproc_cluster" "cluster-wsae" {
       override_properties = {
         "dataproc:dataproc.allow.zero.workers" = "true"
       }
-    }
-
-    # You can define multiple initialization_action blocks
-    initialization_action {
-      script      = "gs://dataproc-initialization-actions/stackdriver/stackdriver.sh"
-      timeout_sec = 500
     }
 
     encryption_config{
@@ -194,7 +167,7 @@ resource "google_dataproc_cluster" "cluster-wsan" {
   name     = "cluster-wsan"
   provider = google-beta
   project = "airline1-sabre-wolverine"
-  region   = "us-central1"
+  region   = "us-east4"
 
   graceful_decommission_timeout = "120s"
 
@@ -210,32 +183,30 @@ resource "google_dataproc_cluster" "cluster-wsan" {
   }
 
   cluster_config {
-    staging_bucket = "dataproc-staging-bucket"
+    staging_bucket = "dataproc-staging-bucket123"
     
     gce_cluster_config {
       tags = ["foo", "bar"]
       internal_ip_only = true
-      network    = "projects/airline1-sabre-wolverine/global/networks/savita-vpc"
-      subnetwork = "projects/airline1-sabre-wolverine/regions/us-central1/subnetworks/savita--subnet-vpc"
+      
+      #network    = "projects/airline1-sabre-wolverine/global/networks/savita-vpc"
+      subnetwork = "projects/airline1-sabre-wolverine/regions/us-east4/subnetworks/savita-subnet-vpc3"
+
+      # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
+      service_account = null     
     }
 
     master_config {
       num_instances = 1
       machine_type  = "e2-medium"
-      disk_config {
-        boot_disk_type    = "pd-ssd"
-        boot_disk_size_gb = 30
-      }
+      
     }
 
     worker_config {
       num_instances    = 2
       machine_type     = "e2-medium"
-      min_cpu_platform = "Intel Skylake"
-      disk_config {
-        boot_disk_size_gb = 30
-        num_local_ssds    = 1
-      }
+      #min_cpu_platform = "Intel Skylake"
+      
     }
 
     preemptible_worker_config {
@@ -250,11 +221,6 @@ resource "google_dataproc_cluster" "cluster-wsan" {
       }
     }
 
-    # You can define multiple initialization_action blocks
-    initialization_action {
-      script      = "gs://dataproc-initialization-actions/stackdriver/stackdriver.sh"
-      timeout_sec = 500
-    }
 
     encryption_config{
         kms_key_name = ""
