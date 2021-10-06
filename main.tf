@@ -18,6 +18,12 @@ resource "google_project_iam_member" "dataproc-sa-role" {
   member  = "serviceAccount:${google_service_account.dataproc-sa.email}"
 }
 
+resource "google_project_iam_member" "dataproc-sa-role1" {
+  project = "airline1-sabre-wolverine"
+  role    = "roles/dataproc.worker"
+  member  = "serviceAccount:${google_service_account.dataproc-sa.email}"
+}
+
 resource "google_dataproc_cluster" "cluster-wsar" {
   name     = "cluster-wsar"
   provider = google-beta
