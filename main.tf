@@ -9,7 +9,7 @@ provider "google-beta"{
 resource "google_service_account" "dataproc-sa" {
   account_id   = "dataproc-sa-id"
   display_name = "Service Account"
-  project = "airline1-sabre-wolverine"
+  project = var.project
 }
 
 resource "google_project_iam_member" "dataproc-worker" {
@@ -21,7 +21,7 @@ resource "google_project_iam_member" "dataproc-worker" {
 resource "google_dataproc_cluster" "cluster-wsar" {
   name     = "cluster-wsar"
   provider = google-beta
-  project = "airline1-sabre-wolverine"
+  project = var.project
   region   = "us-central1"
 
   graceful_decommission_timeout = "120s"
@@ -45,7 +45,7 @@ resource "google_dataproc_cluster" "cluster-wsar" {
       internal_ip_only = true
       
       #network    = "projects/airline1-sabre-wolverine/global/networks/savita-vpc"
-      subnetwork = "projects/airline1-sabre-wolverine/regions/us-central1/subnetworks/us-dev-appid-syst-demo-subnet"
+      subnetwork = "projects/modular-scout-345114/regions/us-central1/subnetworks/default"
 
       # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
       service_account = google_service_account.dataproc-sa.email
@@ -92,8 +92,8 @@ resource "google_dataproc_cluster" "cluster-wsar" {
 resource "google_dataproc_cluster" "cluster-wsae" {
   name     = "cluster-wsae"
   provider = google-beta
-  project = "airline1-sabre-wolverine"
-  region   = "us-east1"
+  project = var.project
+  region   = "us-central1"
 
   graceful_decommission_timeout = "120s"
 
@@ -116,10 +116,10 @@ resource "google_dataproc_cluster" "cluster-wsae" {
       internal_ip_only = true
       
       #network    = "projects/airline1-sabre-wolverine/global/networks/savita-vpc"
-      subnetwork = "projects/airline1-sabre-wolverine/regions/us-central1/subnetworks/us-dev-appid-syst-demo-subnet"
+      subnetwork = "projects/modular-scout-345114/regions/us-central1/subnetworks/default"
 
       # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-      service_account = "demo-sentinel-sa@airline1-sabre-wolverine.iam.gserviceaccount.com"
+      service_account = "composer-test-v2@modular-scout-345114.iam.gserviceaccount.com"
     }
 
     master_config {
