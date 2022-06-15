@@ -8,7 +8,7 @@ module "composer" {
   network_project_id = var.network_project_id
   subnetwork = var.subnetwork
   subnetwork_region = var.subnetwork_region
-  composer_service_account = google_service_account.cloud-composer-sa
+  composer_service_account = google_service_account.cloud-composer-sa.email
   #composer_service_account = null
   pod_ip_allocation_range_name = var.pod_ip_allocation_range_name
   service_ip_allocation_range_name = var.service_ip_allocation_range_name
