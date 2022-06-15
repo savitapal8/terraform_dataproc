@@ -7,11 +7,13 @@ variable "access_token"{
 variable "project" {
   description = "Name of Project"
   type        = string
+  default     = "modular-scout-345114"
 }
 
 variable "composer_env_name" {
   description = "Name of Cloud Composer Environment"
   type        = string
+  default     = "composer-test-v2"
 }
 
 variable "region" {
@@ -29,29 +31,31 @@ variable "labels" {
 variable "network" {
   type        = string
   description = "The VPC network to host the composer cluster."
+  default     = "default"
 }
 
 variable "network_project_id" {
   type        = string
   description = "The project ID of the shared VPC's host (for shared vpc support)"
-  default     = ""
+  default     = "modular-scout-345114"
 }
 
 variable "subnetwork" {
   type        = string
   description = "The subnetwork to host the composer cluster."
+  default     = "default"
 }
 
 variable "subnetwork_region" {
   type        = string
   description = "The subnetwork region of the shared VPC's host (for shared vpc support)"
-  default     = ""
+  default     = "us-central1"
 }
 
 variable "composer_service_account" {
   description = "Service Account for running Cloud Composer."
   type        = string
-  default     = null
+  default     = "composer-test-v2@modular-scout-345114.iam.gserviceaccount.com"
 }
 
 variable "pod_ip_allocation_range_name" {
@@ -81,7 +85,7 @@ variable "env_variables" {
 variable "image_version" {
   type        = string
   description = "The version of the aiflow running in the cloud composer environment."
-  default     = "composer-2.0.2-airflow-2.1.4"
+  default      = "composer-2.0.16-airflow-2.2.5"
 }
 
 variable "pypi_packages" {
@@ -93,7 +97,7 @@ variable "pypi_packages" {
 variable "use_private_environment" {
   description = "Enable private environment."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "cloud_sql_ipv4_cidr" {
@@ -117,7 +121,7 @@ variable "master_ipv4_cidr" {
 variable "enable_private_endpoint" {
   description = "Configure public access to the cluster endpoint."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "cloud_composer_network_ipv4_cidr_block" {
