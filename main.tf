@@ -15,5 +15,5 @@ resource "google_service_account" "cloud-composer-sa" {
 resource "google_project_iam_member" "dataproc-worker" {
   project = var.project
   role    = "roles/composer.ServiceAgentV2Ext"
-  member  = "serviceAccount:${google_service_account.dataproc-sa.email}"
+  member  = "serviceAccount:${google_service_account.cloud-composer-sa.email}"
 }
