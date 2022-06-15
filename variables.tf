@@ -55,8 +55,8 @@ variable "subnetwork_region" {
 variable "composer_service_account" {
   description = "Service Account for running Cloud Composer."
   type        = string
-  #default     = "composer-test-v2@modular-scout-345114.iam.gserviceaccount.com"
-  default     = "composer-sa-compute@developer.gserviceaccount.com"
+  default     = "composer-test-v2@modular-scout-345114.iam.gserviceaccount.com"
+  #default     = "composer-sa-compute@developer.gserviceaccount.com"
 }
 
 variable "pod_ip_allocation_range_name" {
