@@ -19,7 +19,7 @@ variable "project_id" {
 variable "composer_env_name" {
   description = "Name of Cloud Composer Environment"
   type        = string
-  default     = "composer-test-v2"
+  default     = "composer-test-demo"
 }
 
 variable "region" {
