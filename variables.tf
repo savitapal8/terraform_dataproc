@@ -10,6 +10,12 @@ variable "project" {
   default     = "modular-scout-345114"
 }
 
+variable "project_id" {
+  description = "Name of Project"
+  type        = string
+  default     = "modular-scout-345114"
+}
+
 variable "composer_env_name" {
   description = "Name of Cloud Composer Environment"
   type        = string
