@@ -1,4 +1,4 @@
-module "composer" {
+module "composer_sa_resource" {
   source = "terraform-google-modules/composer/google//modules/create_environment_v2"
   project_id = var.project
   composer_env_name = var.composer_env_name
@@ -34,7 +34,7 @@ module "composer" {
   grant_sa_agent_permission = var.grant_sa_agent_permission
 }
   
-module "composer_sa_resource" {
+module "composer" {
   source = "terraform-google-modules/composer/google//modules/create_environment_v2"
   project_id = var.project
   composer_env_name = "envr2"
