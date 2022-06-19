@@ -120,7 +120,7 @@ resource "google_dataproc_cluster" "cluster-wsae" {
 
       # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
       #service_account = "composer-test-v2@modular-scout-345114.iam.gserviceaccount.com"
-      service_account = "1080178441487-compute@developer.gserviceaccount.com"
+      #service_account = "1080178441487-compute@developer.gserviceaccount.com"
     }
 
     master_config {
