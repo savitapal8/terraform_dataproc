@@ -165,7 +165,7 @@ resource "google_composer_environment" "composer_sa_resource_env" {
     node_config {
       network         = "projects/${local.network_project_id}/global/networks/${var.network}"
       subnetwork      = "projects/${local.network_project_id}/regions/${local.subnetwork_region}/subnetworks/${var.subnetwork}"
-      service_account = google_service_account.cloud-composer-sa
+      service_account = google_service_account.cloud-composer-sa.email
 
       dynamic "ip_allocation_policy" {
         for_each = (var.pod_ip_allocation_range_name != null || var.service_ip_allocation_range_name != null) ? [1] : []
