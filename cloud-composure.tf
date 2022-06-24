@@ -148,11 +148,11 @@ resource "google_composer_environment" "composer_env" {
     master_authorized_networks_config {
         enabled = true
         cidr_blocks { 
-		  [{
-			cidr_block =   "10.2.0.0/16"
-			display_name = "demo-cidr-cc"
-		 }]
-	}	
+	  [{
+		cidr_block =   "10.2.0.0/16"
+		display_name = "demo-cidr-cc"
+	 ]}
+       }	
     }
     
   }
