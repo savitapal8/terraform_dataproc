@@ -259,19 +259,7 @@ resource "google_composer_environment" "composer_sa_resource_env" {
       }
     }
 
-    dynamic "master_authorized_networks_config" {
-      for_each = local.master_authorized_networks_config
-      content {
-        enabled = length(var.master_authorized_networks) > 0
-        dynamic "cidr_blocks" {
-          for_each = master_authorized_networks_config.value["cidr_blocks"]
-          content {
-            cidr_block   = master_authorized_networks_config.value["cidr_block"]
-            display_name = master_authorized_networks_config.value["display_name"]
-          }
-        }
-      }
-    }
+   
   }
 
 }
