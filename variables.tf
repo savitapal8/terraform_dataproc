@@ -223,7 +223,16 @@ variable "master_authorized_networks" {
     cidr_block   = string
     display_name = string
   }))
-  default     = []
+  default     = [ 
+    {
+      cidr_block = "8.8.8.8/32"
+      display_name = "Net 1"
+	   },
+	   {
+      cidr_block = "4.4.4.4/32"
+      display_name = "something"
+	   },
+  ]
   description = "List of master authorized networks. If none are provided, disallow external access (except the cluster node IPs, which GKE automatically whitelists)."
 }
 
