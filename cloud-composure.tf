@@ -151,7 +151,7 @@ resource "google_composer_environment" "composer_env" {
 	  [{
 		cidr_block =   "10.2.0.0/16"
 		display_name = "demo-cidr-cc"
-	 ]}
+	 },]
        }	
     }
     
