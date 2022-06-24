@@ -147,6 +147,7 @@ resource "google_composer_environment" "composer_env" {
     
     master_authorized_networks_config {
         enabled = true
+        cidr_blocks = []
     }
     
   }
