@@ -141,7 +141,7 @@ resource "google_composer_environment" "composer_env" {
       #cidr_block = "8.8.8.8/32"
       #display_name = "Net 1"
      #}
-    }  
+    #}  
   }
 
 }
