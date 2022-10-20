@@ -30,7 +30,7 @@ resource "google_composer_environment" "composer_env" {
   project = var.project_id
   name    = var.composer_env_name
   region  = var.region
-  #labels  = var.labels
+  labels  = var.labels
 
   config {
 
