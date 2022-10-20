@@ -135,12 +135,12 @@ resource "google_composer_environment" "composer_env" {
       kms_key_name = "projects/modular-scout-345114/locations/global/keyRings/keyring-example/cryptoKeys/crypto-key-example"
     }
     
-    master_authorized_networks_config {
-      enabled = true
-      cidr_blocks {
+    #master_authorized_networks_config {
+      #enabled = true
+      #cidr_blocks {
       #cidr_block = "8.8.8.8/32"
-      display_name = "Net 1"
-     }
+      #display_name = "Net 1"
+     #}
     }  
   }
 
