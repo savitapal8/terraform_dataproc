@@ -9,7 +9,7 @@ image_version = "composer-2.0.16-airflow-2.2.5"
 use_private_environment = true
 enable_private_endpoint = true
 airflow_config_overrides = {
-  webserver-rbac_user_registration_role=""
+  webserver-rbac_user_registration_role="Viewer"
 }
 
 labels = {
