@@ -7,7 +7,7 @@ composer_service_account = "composer-test-v2@modular-scout-345114.iam.gserviceac
 #composer_service_account = "1080178441487-compute@developer.gserviceaccount.com"
 image_version = "composer-2.0.16-airflow-2.2.5"
 use_private_environment = true
-enable_private_endpoint = true
+enable_private_endpoint = false
 airflow_config_overrides = {
   webserver-rbac_user_registration_role="Viewer"
 }
