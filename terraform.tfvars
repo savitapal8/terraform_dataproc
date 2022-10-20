@@ -11,3 +11,14 @@ enable_private_endpoint = true
 airflow_config_overrides = {
   webserver-rbac_user_registration_role=""
 }
+
+labels = {
+      gcp_region = "us",
+      owner = "hybridenv",
+      application_division = "pci",
+      application_name = "demo",
+      application_role = "app",
+      environment = "prod",
+      au = "0223092",
+      created = "20220802",
+}
