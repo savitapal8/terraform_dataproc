@@ -132,7 +132,7 @@ resource "google_composer_environment" "composer_env" {
     }   
    
     encryption_config {
-      kms_key_name : "projects/modular-scout-345114/locations/global/keyRings/keyring-example/cryptoKeys/crypto-key-example"
+      kms_key_name = "projects/modular-scout-345114/locations/global/keyRings/keyring-example/cryptoKeys/crypto-key-example"
     }
     
   }
