@@ -138,7 +138,7 @@ resource "google_composer_environment" "composer_env" {
     master_authorized_networks_config {
       enabled = true
       cidr_blocks {
-      cidr_block = "" #"8.8.8.8/32"
+      #cidr_block = "8.8.8.8/32"
       display_name = "Net 1"
      }
     }  
