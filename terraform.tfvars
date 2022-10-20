@@ -1,5 +1,5 @@
 project = "modular-scout-345114"
-composer_env_name = "wf-us-prod-cmp-fghi-app01"
+composer_env_name = "wf-us-prod-cme-fghi-app01"
 network = "default"
 network_project_id = "modular-scout-345114"
 subnetwork = "default"
